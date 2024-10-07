@@ -1,29 +1,26 @@
-class Calculadora {
-    sumar(a: number, b: number): number {
+var Calculadora = /** @class */ (function () {
+    function Calculadora() {
+    }
+    Calculadora.prototype.sumar = function (a, b) {
         return a + b;
-    }
-
-    restar(a: number, b: number): number {
+    };
+    Calculadora.prototype.restar = function (a, b) {
         return a - b;
-    }
-
-    multiplicar(a: number, b: number): number {
+    };
+    Calculadora.prototype.multiplicar = function (a, b) {
         return a * b;
-    }
-
-    dividir(a: number, b: number): number {
+    };
+    Calculadora.prototype.dividir = function (a, b) {
         if (b === 0) {
             throw new Error("No se puede dividir por cero");
             console.error();
         }
         return a / b;
-    }
-
-    potencia(base: number, exponente: number): number {
+    };
+    Calculadora.prototype.potencia = function (base, exponente) {
         return Math.pow(base, exponente);
-    }
-
-    factorial(n: number): number {
+    };
+    Calculadora.prototype.factorial = function (n) {
         if (n < 0) {
             throw new Error("El factorial no está definido para números negativos");
             console.error();
@@ -31,17 +28,16 @@ class Calculadora {
         if (n === 0 || n === 1) {
             return 1;
         }
-        let resultado = 1;
-        for (let i = 2; i <= n; i++) {
+        var resultado = 1;
+        for (var i = 2; i <= n; i++) {
             resultado *= i;
         }
         return resultado;
-    }
-}
-
+    };
+    return Calculadora;
+}());
 /* uso */
-const calc = new Calculadora();
-
+var calc = new Calculadora();
 console.log("Suma: ", calc.sumar(5, 3));
 console.log("Resta: ", calc.restar(10, 4));
 console.log("Multiplicación: ", calc.multiplicar(6, 7));
